@@ -1,5 +1,5 @@
 # CLI-AI
-An AI assistant that lives inside your terminal.
+An AI assistant that lives inside your terminal. With flags to include context about your file system and enviornment.
 
 
 ## Setup
