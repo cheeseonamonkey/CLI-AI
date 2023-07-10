@@ -17,7 +17,7 @@ example:
 ## Flags: 
 
 
-### - `-u` *(--tui)*
+### - `-u` *(--ui)*
 Opens a conversation thread in an interactive terminal UI:
 ![image](https://github.com/cheeseonamonkey/CLI-AI/assets/54555500/d0df2c6b-daf4-400c-8522-0aba3dad4ac8)
 
