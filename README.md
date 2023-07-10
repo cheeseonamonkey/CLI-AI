@@ -12,13 +12,12 @@ An AI assistant that lives inside your terminal. With flags to include context a
 
 
 #### - `-u` *(--tui)*
-Opens a conversation thread in an interactive terminal UI.
->![image](https://github.com/cheeseonamonkey/CLI-AI/assets/54555500/b6bccfdc-cdd6-456a-98f2-97c2df6afbb4)
+Opens a conversation thread in an interactive terminal UI:
+![image](https://github.com/cheeseonamonkey/CLI-AI/assets/54555500/d0df2c6b-daf4-400c-8522-0aba3dad4ac8)
 
 
 #### - `-l` *(--ls)*
 Include a system message with the current directy's files.
 
-Runs `ls` then interpolates the result simply into the chat message.
-
->![image](https://github.com/cheeseonamonkey/CLI-AI/assets/54555500/bcfdc6ef-e70c-43a0-9d5b-0ebccc9cae2b)
+Runs `ls` then interpolates the result simply into the chat message:
+![image](https://github.com/cheeseonamonkey/CLI-AI/assets/54555500/6de6c173-8c6a-46e8-92f6-737ddf2161fb)
