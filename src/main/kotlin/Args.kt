@@ -21,7 +21,7 @@ class Flag(
             Flag("h", false, "help", "Show help menu"),
             Flag("c", false, "config", "Show config"),
             Flag("v", false, "verbose", "Verbose mode"),
-            Flag("u", false, "interactive", "Interactive UI / TUI"),
+            Flag("u", false, "ui", "Interactive UI / TUI"),
             Flag("l", false, "ls", "Include 'ls'"),
             Flag("f", false, "file", "desc"),
             Flag("t", false, "tree", "desc"),
@@ -72,7 +72,7 @@ class Args(args: Array<String>) {
     val hasHelp: Boolean get() = (this["help"] as? Flag)?.active ?: false
     val hasConfig: Boolean get() = (this["config"] as? Flag)?.active ?: false
     val hasVerbose: Boolean get() = (this["verbose"] as? Flag)?.active ?: false
-    val hasInteractive: Boolean get() = (this["interactive"] as? Flag)?.active ?: false
+    val hasInteractive: Boolean get() = (this["ui"] as? Flag)?.active ?: false
     val hasLs: Boolean get() = (this["ls"] as? Flag)?.active ?: false
     val hasFile: Boolean get() = (this["file"] as? Flag)?.active ?: false
     val hasTree: Boolean get() = (this["tree"] as? Flag)?.active ?: false
