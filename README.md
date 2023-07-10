@@ -7,6 +7,9 @@ An AI assistant that lives inside your terminal. With flags to include context a
 1. Set API key 
 
 # Usage
+![image](https://github.com/cheeseonamonkey/CLI-AI/assets/54555500/90f5b2c8-af23-4203-9c34-f9492c494dc0)
+
+example:
 ![image](https://github.com/cheeseonamonkey/CLI-AI/assets/54555500/2baf4950-8a86-4999-8811-9d28153a357b)
 
 
