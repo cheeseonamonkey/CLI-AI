@@ -76,9 +76,13 @@ suspend fun main(args: Array<String>) {
         )
     }
 
+    if(parsedArgs.hasInteractive){
+        Tui(chatBody, config).start()
+        exitProcess(0)
+    }
 
     // user input message:
-    chatBody.messages.add(Message("user", parsedArgs.inputMessage.message))
+    chatBody.messages.add(Message("user", parsedArgs.inputMessage.message.toString()))
     "\n${underline}${bold}ChatBody:${reset}\n${chatBody.toString().indent(2)}".logIfVerbose()
 
 
@@ -86,10 +90,6 @@ suspend fun main(args: Array<String>) {
 
 
 
-    if(parsedArgs.hasInteractive){
-        Tui(chatBody, config).start()
-        exitProcess(0)
-    }
 
 
     // send chat

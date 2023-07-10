@@ -145,7 +145,7 @@ class Args(args: Array<String>) {
             val lstOut = mutableListOf<ArgumentOption>().apply {
                 if(flagList.isNotEmpty())
                     addAll(flagList)
-                if(!args.joinToString("").contains("-h")  &&  inputStr.toString().isEmpty())
+                if(!args.joinToString("").contains("-[huc]".toRegex())   &&  inputStr.toString().isEmpty())
                     throw Exception("No <INPUT> parameter found in arguments")
                 add(Input(inputStr.toString()))
             }.toList()

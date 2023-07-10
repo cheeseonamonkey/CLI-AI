@@ -26,7 +26,7 @@ class Tui(
 
 
 
-        println("Welcome to the chat program!")
+        println("\n\nChat Conversation:\n")
 
         for(msg in chatBody.messages)
             msg.draw()
