@@ -8,7 +8,8 @@ object AnsiColors {
     val bold = "\u001B[1m"
     val underline = "\u001B[4m"
     val italics = "\u001B[3m"
-
+    val lightGray = "\u001B[37m"
+    val darkGray = "\u001B[90m"
     val red = "\u001B[31m"
     val green = "\u001B[32m"
 

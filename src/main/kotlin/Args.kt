@@ -16,19 +16,6 @@ class Flag(
     description: String
 ) : ArgumentOption(name, description) {
 
-    companion object {
-        fun possibleFlags() = listOf<Flag>(
-            Flag("h", false, "help", "Show help menu"),
-            Flag("c", false, "config", "Show config"),
-            Flag("v", false, "verbose", "Verbose mode"),
-            Flag("u", false, "ui", "Interactive UI / TUI"),
-            Flag("l", false, "ls", "Include 'ls'"),
-            Flag("f", false, "file", "desc"),
-            Flag("t", false, "tree", "desc"),
-            Flag("i", false, "include", "desc"),
-            Flag("s", false, "system", "desc"),
-        )
-    }
 
     override fun buildOptionLine(): String {
         val shortNameLine = String.format("-%-2s", shortName)
@@ -106,12 +93,12 @@ class Args(args: Array<String>) {
                 // - arg:
                 if (arg.startsWith("--")) {
                     val argName = arg.removePrefix("--").lowercase(Locale.getDefault())
-                    val possibleNames = Flag.possibleFlags().map { it.name }
+                    val possibleNames = predefinedFlags.map { it.name }
                     //println(argName)
                     //println(possibleNames)
                     //println(possibleNames.contains(argName))
 
-                    val foundFlag = Flag.possibleFlags().find { it.name == argName }
+                    val foundFlag = predefinedFlags.find { it.name == argName }
                     if (foundFlag != null) {//if found..
                         foundFlag.active = true;
                         flagList.add(foundFlag)
@@ -121,12 +108,12 @@ class Args(args: Array<String>) {
                     // -- arg:
                 } else if (arg.startsWith("-")) {
                     val argShortName = arg.removePrefix("-").lowercase(Locale.getDefault())
-                    val possibleShortNames = Flag.possibleFlags().map { it.shortName }
+                    val possibleShortNames = predefinedFlags.map { it.shortName }
                     //println(argName)
                     //println(possibleNames)
                     //println(possibleNames.contains(argName))
 
-                    val foundFlag = Flag.possibleFlags().find { it.shortName == argShortName }
+                    val foundFlag = predefinedFlags.find { it.shortName == argShortName }
 
                     //return found - else throw up:
                     if (foundFlag == null)
@@ -171,7 +158,7 @@ class Args(args: Array<String>) {
         str.appendLine()
 
         str.appendLine("Options:")
-        Flag.possibleFlags().forEachIndexed { i, flag ->
+        predefinedFlags.forEachIndexed { i, flag ->
             if(i % 2 != 0)
                 str.appendLine(flag.buildOptionLine())
             else
@@ -198,3 +185,21 @@ class Args(args: Array<String>) {
 
 
 }
+
+
+
+
+
+
+val predefinedFlags = listOf(
+    Flag("h", false, "help", "Show help menu"),
+    Flag("c", false, "context", "Include lines of terminal context"),
+    Flag("v", false, "verbose", "Verbose mode"),
+    Flag("u", false, "ui", "Interactive UI / TUI"),
+    Flag("l", false, "ls", "Include 'ls'"),
+    Flag("p", false, "programs", "Include list of installed programs"),
+    Flag("f", false, "file", "desc"),
+    Flag("t", false, "tree", "desc"),
+    Flag("s", false, "system", "desc")
+)
+

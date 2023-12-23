@@ -4,8 +4,10 @@ import eu.jrie.jetbrains.kotlinshell.shell.shell
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.runBlocking
+import misc.AnsiColors
 import misc.AnsiColors.bold
 import misc.AnsiColors.code
+import misc.AnsiColors.darkGray
 import misc.AnsiColors.reset
 import misc.AnsiColors.underline
 import misc.Requester
@@ -24,9 +26,6 @@ fun String.log() { println(this) }
 
 
 suspend fun main(args: Array<String>) {
-
-
-
 
 
 
@@ -66,12 +65,15 @@ suspend fun main(args: Array<String>) {
     // ls (before user message!):
     if(parsedArgs.hasLs) {
 
+        println("${darkGray}")
         val lsResults = runShell("ls")?.trim() ?: "error"
+        val pwdResults = runShell("pwd")?.trim() ?: "error"
+        println("${reset}")
 
         chatBody.messages.add(
             Message(
                 "system",
-                "Here are the contents of the current directory:\n```" + ("\n> ls;\n" + "${lsResults}\n") + "```".trimIndent().trim()
+                "Here is some context about the current directory:\n```" + ("\n>pwd;\n${pwdResults}\n\n> ls;\n" + "${lsResults}\n") + "```".trimIndent().trim()
             )
         )
     }

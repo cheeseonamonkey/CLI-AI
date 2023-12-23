@@ -47,6 +47,8 @@ tasks.test {
     useJUnitPlatform()
 }
 
+
+
 kotlin {
     jvmToolchain(17)
 }
@@ -54,3 +56,22 @@ kotlin {
 application {
     mainClass.set("MainKt")
 }
+
+
+
+
+
+task("MyShellCopyTask") {
+
+
+
+    doLast {
+        exec {
+            workingDir = File("${projectDir}/build/install/untitled3/bin")
+            commandLine("sh", "-c", "cp untitled3 chat")
+            commandLine("sh", "-c", "cp untitled3.bat chat.bat")
+
+        }
+    }
+}
+
