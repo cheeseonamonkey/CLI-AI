@@ -71,7 +71,7 @@ class ArgsTest {
         assertNull(parsed["h"])
         assertEquals("input", (parsed["input"] as Input).message)
     }
-
+cat 
     @Test
     fun testParseArgsWithUnknownFlag() {
         val args = arrayOf("-x", "hello", "world!")
